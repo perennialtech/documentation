@@ -101,6 +101,24 @@ cd invidious
 docker-compose up
 ```
 
+### Kubernetes (Helm)
+
+Invidious can be deployed to [Kubernetes](https://kubernetes.io/) using the [Invidious Helm chart](https://github.com/iv-org/invidious-helm-chart).
+
+Follow these steps to install the Helm chart:
+
+1. Add the Invidious Helm chart repository:
+
+   ```sh
+   $ helm repo add invidious https://charts-helm.invidious.io
+   $ helm repo update
+   ```
+
+2. Install the Helm chart to your Kubernetes cluster:
+
+   ```sh
+   $ helm install invidious invidious/invidious
+   ```
 
 ## Manual Installation
 
@@ -249,6 +267,14 @@ If you use a reverse proxy, you **must** configure invidious to properly serve r
 docker-compose pull
 docker-compose up -d
 docker image prune -f
+```
+
+#### Updating a Helm install
+
+To upgrade the Helm chart, run the following command:
+
+```sh
+$ helm upgrade invidious invidious/invidious
 ```
 
 #### Update a manual install
